@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 14:20:41
- * @LastEditTime: 2019-07-25 15:07:12
+ * @LastEditTime: 2019-07-25 17:10:12
  * @Description: Toolbar holds all the elements menu & logo & navigation
  */
 
@@ -13,8 +13,8 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 const toolbar = (props) => (
     <header className={styles.Toolbar}>
         <div>MENU</div>
-        <Logo />
-        <nav>
+        <div className = {styles.Logo}><Logo /></div>        
+        <nav className = {styles.DesktopOnly}>
             <NavigationItems />
         </nav>
     </header>
