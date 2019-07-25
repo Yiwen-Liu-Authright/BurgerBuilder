@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 14:05:20
+ * @LastEditTime: 2019-07-25 14:14:18
  * @Description: Build the Burger Page
  */
 
@@ -123,6 +123,7 @@ class Burgerbuilder extends Component {
                         ingredients={this.state.ingredients}
                         purchaseContinued={this.purchaseContinuedHandler}
                         purchaseCancelled={this.purchaseCancelledHandler}
+                        price={this.state.totalPrice}
                     />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />

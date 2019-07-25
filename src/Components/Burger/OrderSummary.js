@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 12:08:03
- * @LastEditTime: 2019-07-25 14:05:41
+ * @LastEditTime: 2019-07-25 14:13:11
  * @Description: 
  */
 
@@ -29,6 +29,7 @@ const orderSummary = (props) => {
             <ul>
                 {ingredientsSummary}
             </ul>
+            <p><strong>Total Price: {props.price}</strong></p>
             <p>Continue to Checkout?</p>
             <Button btnType="Danger" clicked={props.purchaseCancelled}>CANCEL</Button>
             <Button btnType="Success" clicked={props.purchaseContinued}>CHECKOUT</Button>
