@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 13:24:05
+ * @LastEditTime: 2019-07-25 14:05:20
  * @Description: Build the Burger Page
  */
 
@@ -99,6 +99,14 @@ class Burgerbuilder extends Component {
         this.setState({ showModal: false })
     }
 
+    purchaseCancelledHandler = () => {
+        this.setState({ showModal: false })
+    }
+
+    purchaseContinuedHandler = () => {
+        alert("Ready for purchase!");
+    }
+
     // Send the state ingredients as props to the Burger
     render() {
         const disabledInfo = {
@@ -111,7 +119,11 @@ class Burgerbuilder extends Component {
             <Aux>
                 {/* Pass the Modal control properties to the Modal*/}
                 <Modal show={this.state.showModal} modalClosed={this.moduleCloseHandler}>
-                    <OrderSummary ingredients={this.state.ingredients} />
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        purchaseContinued={this.purchaseContinuedHandler}
+                        purchaseCancelled={this.purchaseCancelledHandler}
+                    />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 {/* Pass the ingredientAdded as props to the BuildControls */}

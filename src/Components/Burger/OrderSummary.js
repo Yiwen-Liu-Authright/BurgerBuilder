@@ -1,12 +1,13 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 12:08:03
- * @LastEditTime: 2019-07-25 12:27:19
+ * @LastEditTime: 2019-07-25 14:05:41
  * @Description: 
  */
 
 import React from 'react';
 import Aux from '../../hoc/Aux'; // Wrapping the elements
+import Button from '../UI/Button/Button';
 
 const orderSummary = (props) => {
     // Convert the ingredients to a list of ingredients with igKey
@@ -29,6 +30,8 @@ const orderSummary = (props) => {
                 {ingredientsSummary}
             </ul>
             <p>Continue to Checkout?</p>
+            <Button btnType="Danger" clicked={props.purchaseCancelled}>CANCEL</Button>
+            <Button btnType="Success" clicked={props.purchaseContinued}>CHECKOUT</Button>
         </Aux>
     )
 };
