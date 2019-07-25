@@ -1,23 +1,31 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 11:36:11
- * @LastEditTime: 2019-07-25 12:42:22
+ * @LastEditTime: 2019-07-25 13:21:46
  * @Description: wrapping any content we want to show under the modal
  */
 
 import React from 'react';
 import styles from './Modal.module.css';
+import Aux from '../../../hoc/Aux'
+import Backdrop from '../Backdrop/Backdrop';
 
 // add it to the place we want to show
 const modal = (props) => (
-    //props.children can be anything inside the props
-    <div className={styles.Modal}
-        style={{
-            transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-            opacity: props.show ? '1' : '0'
-        }}>
-        {props.children}
-    </div>
+
+    <Aux>
+        {/* As Backdrop being clicked turn the show to false */}
+        <Backdrop show={props.show} clicked={props.modalClosed} />
+        <div className={styles.Modal}
+            style={{
+                transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
+                opacity: props.show ? '1' : '0'
+            }}>
+            {/* props.children can be anything inside the props */}
+            {props.children}
+        </div>
+    </Aux>
+
 );
 
 export default modal;

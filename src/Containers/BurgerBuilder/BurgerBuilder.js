@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 12:49:39
+ * @LastEditTime: 2019-07-25 13:24:05
  * @Description: Build the Burger Page
  */
 
@@ -36,7 +36,7 @@ class Burgerbuilder extends Component {
         },
         totalPrice: 4,
         purchaseable: false,
-        purchasing: false,
+        showModal: false,
     }
 
     // pass a type as parameter to add ingredient of the burger
@@ -91,8 +91,12 @@ class Burgerbuilder extends Component {
         // this.setState({ purchaseable: orderNowStatus });
     }
 
-    purchaseHandler = () => {
-        this.setState({purchasing: true})
+    moduleOpenHandler = () => {
+        this.setState({ showModal: true })
+    }
+
+    moduleCloseHandler = () => {
+        this.setState({ showModal: false })
     }
 
     // Send the state ingredients as props to the Burger
@@ -105,8 +109,9 @@ class Burgerbuilder extends Component {
         }
         return (
             <Aux>
-                <Modal show = {this.state.purchasing}> 
-                    <OrderSummary ingredients = {this.state.ingredients}/>
+                {/* Pass the Modal control properties to the Modal*/}
+                <Modal show={this.state.showModal} modalClosed={this.moduleCloseHandler}>
+                    <OrderSummary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 {/* Pass the ingredientAdded as props to the BuildControls */}
@@ -115,9 +120,9 @@ class Burgerbuilder extends Component {
                     ingredientDeleted={this.removeIngredientHandler}
                     disabled={disabledInfo}
                     purchaseable={this.state.purchaseable}
-                    purchasing={this.purchaseHandler}
-                    totalPrice={this.state.totalPrice} 
-                    />
+                    showModal={this.moduleOpenHandler}
+                    totalPrice={this.state.totalPrice}
+                />
             </Aux>
 
         )

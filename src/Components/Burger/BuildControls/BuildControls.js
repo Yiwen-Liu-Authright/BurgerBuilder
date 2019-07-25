@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 19:40:10
- * @LastEditTime: 2019-07-25 12:30:39
+ * @LastEditTime: 2019-07-25 13:24:47
  * @Status: 
  * @Description: A couple of Build Controls
  */
@@ -41,7 +41,7 @@ const buildControls = (props) => (
         <button
             className={styles.OrderButton}
             disabled={!props.purchaseable}
-            onClick={props.purchasing}
+            onClick={props.showModal}
         >ORDER NOW</button>
     </div>
 );
