@@ -1,3 +1,10 @@
+/*
+ * @Comment: Yiwen Liu
+ * @Date: 2019-07-25 16:33:23
+ * @LastEditTime: 2019-07-26 00:18:35
+ * @Description: Side Drawer Menu with Logo & NavigationItems & Backdrop
+ */
+
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
@@ -9,13 +16,13 @@ const sideDrawer = (props) => {
 
     //...
     let attachedClasses = [styles.SideDrawer, styles.Close]
-    if (props.open) {
+    if (props.opened) {
         attachedClasses = [styles.SideDrawer, styles.Open];
     }
     return (
         <Aux >
             {/* As long as the Backdrop being clicked the props won't show */}
-            <Backdrop show={props.open} clicked={props.closed} />
+            <Backdrop show={props.opened} clicked={props.closed} />
             <div className={attachedClasses.join(' ')}>
                 <div className={styles.Logo}><Logo /></div>
                 <nav>
