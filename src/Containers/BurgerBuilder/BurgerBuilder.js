@@ -1,12 +1,12 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 23:33:48
+ * @LastEditTime: 2019-07-26 01:51:38
  * @Description: Build the Burger Page
  */
 
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux'
+import Aux from '../../hoc/Aux/Aux'
 import Burger from '../../Components/Burger/Burger'
 import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
 import Modal from '../../Components/UI/Modal/Modal';
@@ -102,6 +102,7 @@ class Burgerbuilder extends Component {
             ingredients: initialIngredients,
             totalPrice: INITIAL_BURGER_PRICE,
             showModal: false,
+            purchaseable: false,
         })
     }
 
@@ -122,9 +123,12 @@ class Burgerbuilder extends Component {
             // Passing Children
             <Aux>
                 {/* Pass the Modal control properties to the Modal*/}
+                {/* OrderSummary inside the Modal can be optimize is because the OrderSummary won't show till we click the button
+                    Therefore, it's no needed to be re-render */}
                 <Modal show={this.state.showModal} modalClosed={this.moduleCloseHandler}>
                     {/* passing props */}
                     <OrderSummary
+                        // Each this.state call orderSummary will be re-rendering
                         ingredients={this.state.ingredients}
                         purchaseContinued={this.purchaseContinuedHandler}
                         purchaseCancelled={this.purchaseCancelledHandler}
