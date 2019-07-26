@@ -1,8 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 19:40:10
- * @LastEditTime: 2019-07-25 11:00:35
- * @Status: 
+ * @LastEditTime: 2019-07-25 23:04:48
  * @Description: A couple of Build Controls
  */
 
@@ -35,10 +34,14 @@ const buildControls = (props) => (
                 // Pass the ingredientAdded to each individual build control
                 // Pass the ctrl type as an argument to run the function addIngredientHandler
                 added={() => props.ingredientAdded(ctrl.type)}
-                removed = {()=>props.ingredientDeleted(ctrl.type)}
-                disabled = {props.disabled[ctrl.type]} />) // disable the selecting type while the type count <= 0
+                removed={() => props.ingredientDeleted(ctrl.type)}
+                disabled={props.disabled[ctrl.type]} />) // disable the selecting type while the type count <= 0
         }
-        <button className = {styles.OrderButton} disabled = {!props.purchaseable}>ORDER NOW</button>
+        <button
+            className={styles.OrderButton}
+            disabled={!props.purchaseable}
+            onClick={props.showModal}
+        >ORDER NOW</button>
     </div>
 );
 export default buildControls;

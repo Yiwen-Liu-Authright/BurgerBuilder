@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 11:27:07
+ * @LastEditTime: 2019-07-25 23:33:48
  * @Description: Build the Burger Page
  */
 
@@ -9,6 +9,8 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux'
 import Burger from '../../Components/Burger/Burger'
 import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
+import Modal from '../../Components/UI/Modal/Modal';
+import OrderSummary from '../../Components/Burger/OrderSummary';
 
 const INGREDIENTS_PRICE = {
     salad: 0.5,
@@ -17,12 +19,9 @@ const INGREDIENTS_PRICE = {
     meat: 1.3,
 }
 
-class Burgerbuilder extends Component {
+const INITIAL_BURGER_PRICE = 4
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {}
-    // }
+class Burgerbuilder extends Component {
 
     // Burger Ingredients
     state = {
@@ -32,8 +31,9 @@ class Burgerbuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 4,
+        totalPrice: INITIAL_BURGER_PRICE,
         purchaseable: false,
+        showModal: false,
     }
 
     // pass a type as parameter to add ingredient of the burger
@@ -81,10 +81,33 @@ class Burgerbuilder extends Component {
                 return sum + el; // add each ingredient's count to the sum variable
             }, 0); // the initial state is 0
         this.setState({ purchaseable: sum > 0 });
-        // const orderNowStatus = ingredients.totalPrice > 4;
-        // console.log(ingredients.totalPrice)
-        // console.log(orderNowStatus)
-        // this.setState({ purchaseable: orderNowStatus });
+    }
+
+    moduleOpenHandler = () => {
+        this.setState({ showModal: true })
+    }
+
+    moduleCloseHandler = () => {
+        this.setState({ showModal: false })
+    }
+
+    // As user click the Cancel Handler, the ingredients will be reset to the initial states
+    purchaseCancelledHandler = () => {
+        // Clean all the ingredients & price to be initial
+        const initialIngredients = { ...this.state.ingredients };
+        for (let key in initialIngredients) {
+            initialIngredients[key] = 0;
+        }
+        this.setState({
+            ingredients: initialIngredients,
+            totalPrice: INITIAL_BURGER_PRICE,
+            showModal: false,
+        })
+    }
+
+    // press continue to checkout
+    purchaseContinuedHandler = () => {
+        alert("Ready for purchase!");
     }
 
     // Send the state ingredients as props to the Burger
@@ -96,7 +119,18 @@ class Burgerbuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
         return (
+            // Passing Children
             <Aux>
+                {/* Pass the Modal control properties to the Modal*/}
+                <Modal show={this.state.showModal} modalClosed={this.moduleCloseHandler}>
+                    {/* passing props */}
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        purchaseContinued={this.purchaseContinuedHandler}
+                        purchaseCancelled={this.purchaseCancelledHandler}
+                        price={this.state.totalPrice}
+                    ></OrderSummary>
+                </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 {/* Pass the ingredientAdded as props to the BuildControls */}
                 <BuildControls
@@ -104,7 +138,9 @@ class Burgerbuilder extends Component {
                     ingredientDeleted={this.removeIngredientHandler}
                     disabled={disabledInfo}
                     purchaseable={this.state.purchaseable}
-                    totalPrice={this.state.totalPrice} />
+                    showModal={this.moduleOpenHandler}
+                    totalPrice={this.state.totalPrice}
+                ></BuildControls>
             </Aux>
 
         )

@@ -1,8 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 19:45:56
- * @LastEditTime: 2019-07-25 09:53:21
- * @Status: 
+ * @LastEditTime: 2019-07-25 23:04:58
  * @Description: Individual Build Control Componet
  */
 
