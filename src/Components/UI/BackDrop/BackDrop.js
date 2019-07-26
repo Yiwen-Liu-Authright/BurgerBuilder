@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 11:42:07
- * @LastEditTime: 2019-07-25 23:24:58
+ * @LastEditTime: 2019-07-25 23:27:50
  * @Description:    Reusable UI Component -- backdrop
  *                  As the Component is showing, have the backdrop css style
  *                  and able to click the backdrop to unshow the component

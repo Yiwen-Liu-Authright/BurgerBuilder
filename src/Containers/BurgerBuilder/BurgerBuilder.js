@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 23:22:10
+ * @LastEditTime: 2019-07-25 23:33:48
  * @Description: Build the Burger Page
  */
 
@@ -81,11 +81,6 @@ class Burgerbuilder extends Component {
                 return sum + el; // add each ingredient's count to the sum variable
             }, 0); // the initial state is 0
         this.setState({ purchaseable: sum > 0 });
-        // not good if have some free ingredient settings
-        // const orderNowStatus = ingredients.totalPrice > 4;
-        // console.log(ingredients.totalPrice)
-        // console.log(orderNowStatus)
-        // this.setState({ purchaseable: orderNowStatus });
     }
 
     moduleOpenHandler = () => {
@@ -100,7 +95,7 @@ class Burgerbuilder extends Component {
     purchaseCancelledHandler = () => {
         // Clean all the ingredients & price to be initial
         const initialIngredients = { ...this.state.ingredients };
-        for(let key in initialIngredients) {
+        for (let key in initialIngredients) {
             initialIngredients[key] = 0;
         }
         this.setState({
@@ -124,15 +119,17 @@ class Burgerbuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
         return (
+            // Passing Children
             <Aux>
                 {/* Pass the Modal control properties to the Modal*/}
                 <Modal show={this.state.showModal} modalClosed={this.moduleCloseHandler}>
+                    {/* passing props */}
                     <OrderSummary
                         ingredients={this.state.ingredients}
                         purchaseContinued={this.purchaseContinuedHandler}
                         purchaseCancelled={this.purchaseCancelledHandler}
                         price={this.state.totalPrice}
-                    />
+                    ></OrderSummary>
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 {/* Pass the ingredientAdded as props to the BuildControls */}
@@ -143,7 +140,7 @@ class Burgerbuilder extends Component {
                     purchaseable={this.state.purchaseable}
                     showModal={this.moduleOpenHandler}
                     totalPrice={this.state.totalPrice}
-                />
+                ></BuildControls>
             </Aux>
 
         )

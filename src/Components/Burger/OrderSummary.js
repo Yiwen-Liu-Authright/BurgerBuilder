@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 12:08:03
- * @LastEditTime: 2019-07-25 22:58:04
+ * @LastEditTime: 2019-07-25 23:29:38
  * @Description: All the Order Summary Info which whill be wrapped inside the modal
  */
 
@@ -24,6 +24,7 @@ const orderSummary = (props) => {
     return (
         // show the whole orderSummary Info window and wrap it with aux
         <Aux>
+            {/* Order Summary Info Show Up */}
             <h3>Your Order</h3>
             <p>A delicious burger with the following ingredients: </p>
             <ul>
@@ -31,6 +32,7 @@ const orderSummary = (props) => {
             </ul>
             <p><strong>Total Price: ${props.price.toFixed(2)}</strong></p>
             <p>Continue to Checkout?</p>
+            {/* Button to cancel or checkout */}
             <Button btnType="Danger" clicked={props.purchaseCancelled}>CANCEL</Button>
             <Button btnType="Success" clicked={props.purchaseContinued}>CHECKOUT</Button>
         </Aux>

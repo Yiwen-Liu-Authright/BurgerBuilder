@@ -1,8 +1,8 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 11:36:11
- * @LastEditTime: 2019-07-25 23:26:04
- * @Description:  Reusable UI Component --Modal
+ * @LastEditTime: 2019-07-25 23:27:34
+ * @Description:  Reusable UI Component -- Modal
  *                wrapping any content we want to show inside the modal
  */
 
