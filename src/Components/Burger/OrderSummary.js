@@ -1,8 +1,8 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 12:08:03
- * @LastEditTime: 2019-07-25 14:16:21
- * @Description: 
+ * @LastEditTime: 2019-07-25 22:58:04
+ * @Description: All the Order Summary Info which whill be wrapped inside the modal
  */
 
 import React from 'react';

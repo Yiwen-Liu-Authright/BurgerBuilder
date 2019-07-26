@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 15:20:24
- * @LastEditTime: 2019-07-25 14:14:18
+ * @LastEditTime: 2019-07-25 23:22:10
  * @Description: Build the Burger Page
  */
 
@@ -19,12 +19,9 @@ const INGREDIENTS_PRICE = {
     meat: 1.3,
 }
 
-class Burgerbuilder extends Component {
+const INITIAL_BURGER_PRICE = 4
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {}
-    // }
+class Burgerbuilder extends Component {
 
     // Burger Ingredients
     state = {
@@ -34,7 +31,7 @@ class Burgerbuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 4,
+        totalPrice: INITIAL_BURGER_PRICE,
         purchaseable: false,
         showModal: false,
     }
@@ -99,10 +96,21 @@ class Burgerbuilder extends Component {
         this.setState({ showModal: false })
     }
 
+    // As user click the Cancel Handler, the ingredients will be reset to the initial states
     purchaseCancelledHandler = () => {
-        this.setState({ showModal: false })
+        // Clean all the ingredients & price to be initial
+        const initialIngredients = { ...this.state.ingredients };
+        for(let key in initialIngredients) {
+            initialIngredients[key] = 0;
+        }
+        this.setState({
+            ingredients: initialIngredients,
+            totalPrice: INITIAL_BURGER_PRICE,
+            showModal: false,
+        })
     }
 
+    // press continue to checkout
     purchaseContinuedHandler = () => {
         alert("Ready for purchase!");
     }

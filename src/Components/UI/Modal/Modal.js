@@ -1,8 +1,9 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 11:36:11
- * @LastEditTime: 2019-07-25 13:21:46
- * @Description: wrapping any content we want to show under the modal
+ * @LastEditTime: 2019-07-25 23:26:04
+ * @Description:  Reusable UI Component --Modal
+ *                wrapping any content we want to show inside the modal
  */
 
 import React from 'react';

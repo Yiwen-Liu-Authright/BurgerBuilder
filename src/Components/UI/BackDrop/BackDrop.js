@@ -1,8 +1,10 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 11:42:07
- * @LastEditTime: 2019-07-25 13:16:25
- * @Description: 
+ * @LastEditTime: 2019-07-25 23:24:58
+ * @Description:    Reusable UI Component -- backdrop
+ *                  As the Component is showing, have the backdrop css style
+ *                  and able to click the backdrop to unshow the component
  */
 
 // set it seperate with Modal is because sideDrop & navigation may also use this Component

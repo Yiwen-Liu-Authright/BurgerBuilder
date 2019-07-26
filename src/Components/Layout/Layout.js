@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-23 14:51:00
- * @LastEditTime: 2019-07-25 18:05:41
+ * @LastEditTime: 2019-07-25 18:36:09
  * @Status: 
  * @Description: 
  */
@@ -15,20 +15,25 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 class Layout extends Component {
 
     state = {
-        showSideDrawer: true,
+        showSideDrawer: false,
     }
 
     sideDrawerClosedHandler = () => {
         this.setState({ showSideDrawer: false });
     }
 
-    // sideDrawerShowHandler
+    // SetState & Map double checked
+    sideDrawerToggleHandler = () => {
+        this.setState((prevState) => {
+            return { showSideDrawer: !prevState.showSideDrawer };
+        });
+    }
 
     // json elements, need to be wrap 
     render() {
         return (
             <Aux>
-                <Toolbar />
+                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler} />
