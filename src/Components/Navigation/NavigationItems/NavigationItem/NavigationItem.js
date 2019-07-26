@@ -1,8 +1,9 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 14:46:34
- * @LastEditTime: 2019-07-25 15:08:17
- * @Description: Reusable navigation Item
+ * @LastEditTime: 2019-07-26 00:07:53
+ * @Description:    Reusable navigation Item 
+ *                  with a link to the deriction and able to be activated
  */
 
 import React from 'react';

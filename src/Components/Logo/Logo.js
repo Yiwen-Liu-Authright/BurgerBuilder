@@ -1,8 +1,10 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 14:31:00
- * @LastEditTime: 2019-07-25 14:40:27
- * @Description: Copy the image address to this file since every import will be recorganized after bundle
+ * @LastEditTime: 2019-07-26 00:01:33
+ * @Description:    A reusable Logo image Component
+ *                  Copy the image address to this file 
+ *                  since every import will be recorganized after bundle
  */
 
 import React from 'react';

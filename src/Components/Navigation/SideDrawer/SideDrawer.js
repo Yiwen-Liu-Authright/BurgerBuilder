@@ -1,3 +1,10 @@
+/*
+ * @Comment: Yiwen Liu
+ * @Date: 2019-07-25 16:33:23
+ * @LastEditTime: 2019-07-26 00:06:12
+ * @Description: Side Drawer Menu with Logo & NavigationItems & Backdrop
+ */
+
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';

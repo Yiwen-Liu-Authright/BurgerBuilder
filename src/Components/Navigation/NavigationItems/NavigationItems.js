@@ -1,8 +1,9 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 14:44:33
- * @LastEditTime: 2019-07-25 15:07:37
- * @Description: All navigation items for routing
+ * @LastEditTime: 2019-07-26 00:06:43
+ * @Description:    Reusable NavagationItems
+ *                  All navigation items for routing
  */
 
 import React from 'react';
