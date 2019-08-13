@@ -1,7 +1,7 @@
 /*
  * @Comment: Yiwen Liu
  * @Date: 2019-07-25 16:33:23
- * @LastEditTime: 2019-07-26 00:18:35
+ * @LastEditTime: 2019-07-30 12:06:37
  * @Description: Side Drawer Menu with Logo & NavigationItems & Backdrop
  */
 
@@ -26,7 +26,8 @@ const sideDrawer = (props) => {
             <div className={attachedClasses.join(' ')}>
                 <div className={styles.Logo}><Logo /></div>
                 <nav>
-                    <NavigationItems />
+                    <NavigationItems justForTest={true}/>
+                    <NavigationItems justForTest={false}/>
                 </nav>
             </div>
         </Aux>
